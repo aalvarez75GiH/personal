@@ -1,0 +1,75 @@
+@media screen and (min-width: 320px) {
+    .container {
+        padding: 3%;
+        width: 89%;
+        height: 406px;
+    }
+    h1 {
+        font-size: 2rem; 
+    }
+    
+    .testBtn {
+        width: 28%;
+        height: 56%;
+    }
+
+    .login-form {
+        width: 93%;   
+    }
+    header {
+        height: 13%;
+    }
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 2%;
+    }
+
+    .form-main {
+        margin-bottom: 1%;
+        margin-top: 1%;
+        min-width: 150px;
+        min-height: 400px;
+        
+    }
+}
+@media screen and (min-width: 360px) {
+    .container {
+        padding: 2%;
+        width: 89%;
+        height: 442px;
+    }
+    .login-form {
+        width: 93%;
+    }
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    .form-main {
+        margin-bottom: 1%;
+        margin-top: 1%;
+        min-width: 150px;
+        min-height: 400px;
+        
+    }
+}
+
+@media screen and (min-width: 412px) {
+    .container {
+        padding: 3%;
+        width: 89%;
+        height: 489px;
+    } 
+    .login-form {
+        width: 90%;   
+    }
+    h1 {
+        font-size: 3rem;
+        margin-top: 4%;
+    }
+    .form-main {
+        width: 100%;
+        /* min-height: 598px; */
+    }
+   
+}
