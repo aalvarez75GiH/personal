@@ -1,0 +1,33 @@
+
+.app {
+    margin-top: 2%;
+}
+.container {
+    padding: 1.6%;
+    width: 46%;
+    height: 475px;
+    
+}
+
+.testBtn {
+    width: 21%;
+    height: 71%;
+}
+
+.login-form {
+    padding: 6%;
+    width: 70%;
+    height: 400px;
+    
+}
+.login-form span {
+    font-size: 1.6rem;
+}
+
+header {
+    height: 11%;
+}
+h1 {
+    font-size: 3.2rem;
+}
+    
