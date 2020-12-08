@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001/characters/'
+const API = 'https://rick-and-morty-vercel-8elygehb1.vercel.app/api/characters'
 let array = []
 
 const fetchData = async(url_api) => {

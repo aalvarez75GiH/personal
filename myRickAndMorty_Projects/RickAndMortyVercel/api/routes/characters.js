@@ -1,5 +1,4 @@
-const url_api = 'https://rickandmortyapi.com/api/character/'
-//const { json } = require('body-parser');
+const url_api = 'https://rickandmortyapi.com/api/character'
 const express = require('express');
 const fetch = require("node-fetch");
 const router = express.Router();
