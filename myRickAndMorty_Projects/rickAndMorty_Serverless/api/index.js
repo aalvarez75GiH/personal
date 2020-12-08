@@ -14,6 +14,3 @@ app.use('/api/char', char)
 
 module.exports = app
 
-// module.exports = (req,res) => {
-//     res.send('Fuck this...')
-// }

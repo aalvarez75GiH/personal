@@ -9,9 +9,6 @@ const charactersRouter = require('./routes/characters') //we call characters rou
 app.use(logger('dev')) //we use morgan
 app.use(cors()) //we use cors
 app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: true })) 
-//we use body parser
-app.use(bodyParser.json())
 app.use('/characters', charactersRouter); //we use route we defined
 
 
