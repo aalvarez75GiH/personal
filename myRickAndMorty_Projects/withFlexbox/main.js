@@ -1,4 +1,5 @@
 const API = 'https://rickandmortyapi.com/api/character/'
+
 let array = []
 
 const fetchData = async(url_api) => {
