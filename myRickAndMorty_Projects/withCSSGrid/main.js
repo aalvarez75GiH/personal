@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001/characters/'
+const API = 'https://rickandmortyapi.com/api/character/'
 let array = []
 
 const fetchData = async(url_api) => {
