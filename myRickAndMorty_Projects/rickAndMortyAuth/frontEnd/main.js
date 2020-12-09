@@ -57,23 +57,54 @@ const renderLogin = async() => {
 
  
 
+// const validateForms = async() =>{
+//     const email = document.getElementById('email').value
+//     const password = document.getElementById('password').value
+//     console.log(email)
+//     console.log(password)
+//     if (email === "guest@rickandmorty.com" && password === "1234" ){
+//         console.log('You are Rick and Morty...')
+//         alert('You are Rick and Morty...')
+//         const lView = document.getElementById('login-view')
+//         app.removeChild(app.firstElementChild)
+//         controlRender()
+//     }
+//     if (email != "guest@rickandmorty.com" || password != "1234" ){
+//         alert('Password or Username Incorrect!!')
+//         renderLogin()
+//     }
+// }
+
+
+
 const validateForms = async() =>{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    console.log(email)
-    console.log(password)
-    if (email === "guest@rickandmorty.com" && password === "1234" ){
-        console.log('You are Rick and Morty...')
-        alert('You are Rick and Morty...')
-        const lView = document.getElementById('login-view')
-        app.removeChild(app.firstElementChild)
-        controlRender()
-    }
-    if (email != "guest@rickandmorty.com" || password != "1234" ){
-        alert('Password or Username Incorrect!!')
-        renderLogin()
-    }
+    
+    fetch('http://localhost:3000/api/auth/login', {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+        // body: JSON.stringify({ email: email, password: password }) Esto es lo mismo que lo de 
+        //arriba pero como los nombres de la variables es el mismo se puede acortar  
+    })
+    .then(x => {
+        if (x.status === 200) {
+            alert('Authentication process working...Welcome')
+            const lView = document.getElementById('login-view')
+            app.removeChild(app.firstElementChild)
+            controlRender()
+        }
+        if (x.status === 404) {
+            alert('Password or Username Incorrect!!')
+            renderLogin()
+        }
+    })
+
 }
+
 
 const clickId = () => {
     const gettingOuts = document.querySelectorAll('.classBtn')
