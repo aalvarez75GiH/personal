@@ -10,5 +10,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.5",
     "node-fetch": "^2.6.1"
-  }
+  },
+  "name": "rick-and-morty-auth",
+  "description": "This directory is a brief example of using a Custom Build script that can be deployed with Vercel and zero configuration.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }

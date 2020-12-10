@@ -1,4 +1,5 @@
-const API = 'http://localhost:3000/api/char'
+//const API = 'http://localhost:3000/api/char'
+const API = 'https://rick-and-morty-auth-8grodfuvo.vercel.app/api/char'
 let array = []
 
 const fetchData = async(url_api) => {
@@ -61,8 +62,10 @@ const renderLogin = async() => {
 const validateForms = () =>{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const url_login = 'http://localhost:3000/api/auth/login' 
-
+    //const url_login = 'http://localhost:3000/api/auth/login' 
+    const url_login = 'https://rick-and-morty-auth-8grodfuvo.vercel.app/api/auth/login' 
+    
+    
     fetch(url_login, {
         method:'POST',
         headers: {
@@ -82,8 +85,10 @@ const validateForms = () =>{
         localStorage.setItem('token', response.token)
         return response.token
     })
+    
     .then(token => {
-        return fetch('http://localhost:3000/api/auth/me',{
+        //return fetch('http://localhost:3000/api/auth/me',{
+        return fetch('https://rick-and-morty-auth-8grodfuvo.vercel.app/api/auth/me',{
             method:'GET',
             headers: {
             'Content-Type': 'application/json',
@@ -100,22 +105,6 @@ const validateForms = () =>{
 })
 }
     
-    
-//     .then(x => {
-//         if (x.status === 200) {
-//             alert('Authentication process working...Welcome')
-//             const lView = document.getElementById('login-view')
-//             app.removeChild(app.firstElementChild)
-//             controlRender()
-//         }
-//         if (x.status === 404) {
-//             alert('Password or Username Incorrect!!')
-//             renderLogin()
-//         }
-//     })
-
- 
-
 
 const clickId = () => {
     const gettingOuts = document.querySelectorAll('.classBtn')

@@ -1,5 +1,6 @@
 const API = 'https://rick-and-morty-serverless.aalvarez75gih.vercel.app/api/routes/char/'
 
+
 let array = []
 
 const fetchData = async(url_api) => {
