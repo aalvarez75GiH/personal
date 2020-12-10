@@ -19,16 +19,9 @@ router.post('/login',(req,res) => {
     .exec()
     .then(user => {
         if (!user){ 
-            //return res.send('User not found in Database, sorry :(')
             return res.sendStatus(404)
         } 
-        
-        // if (password === '1234'){
-        //     return res.sendStatus(200)
-        // }else {
-        //     return res.sendStatus(404)
-        // }
-        crypto.pbkdf2(password, user.salt, 10000, 64, 'sha1', (err, key) =>{ 
+          crypto.pbkdf2(password, user.salt, 10000, 64, 'sha1', (err, key) =>{ 
             const encryptedPassword = key.toString('base64')
             if (user.password === encryptedPassword){
                 const token = signToken(user._id)
