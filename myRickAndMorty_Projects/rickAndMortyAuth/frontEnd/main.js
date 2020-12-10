@@ -51,59 +51,70 @@ const renderLogin = async() => {
         const gettingFooter = document.getElementById('footer')
         console.log(gettingFooter)
         document.body.removeChild(gettingFooter)
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
         renderLogin()
      })
  }
 
- 
 
-// const validateForms = async() =>{
-//     const email = document.getElementById('email').value
-//     const password = document.getElementById('password').value
-//     console.log(email)
-//     console.log(password)
-//     if (email === "guest@rickandmorty.com" && password === "1234" ){
-//         console.log('You are Rick and Morty...')
-//         alert('You are Rick and Morty...')
-//         const lView = document.getElementById('login-view')
-//         app.removeChild(app.firstElementChild)
-//         controlRender()
-//     }
-//     if (email != "guest@rickandmorty.com" || password != "1234" ){
-//         alert('Password or Username Incorrect!!')
-//         renderLogin()
-//     }
-// }
-
-
-
-const validateForms = async() =>{
+const validateForms = () =>{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    
-    fetch('http://localhost:3000/api/auth/login', {
+    const url_login = 'http://localhost:3000/api/auth/login' 
+
+    fetch(url_login, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
         },
+        mode:'cors',
         body: JSON.stringify({ email, password })
-        // body: JSON.stringify({ email: email, password: password }) Esto es lo mismo que lo de 
-        //arriba pero como los nombres de la variables es el mismo se puede acortar  
+       
     })
-    .then(x => {
-        if (x.status === 200) {
-            alert('Authentication process working...Welcome')
-            const lView = document.getElementById('login-view')
-            app.removeChild(app.firstElementChild)
-            controlRender()
+    .then(res => {
+        if (res.status === 404){
+            alert('User not found...')
         }
-        if (x.status === 404) {
-            alert('Password or Username Incorrect!!')
-            renderLogin()
-        }
+        return res.json()
     })
-
+    .then(response => {
+        localStorage.setItem('token', response.token)
+        return response.token
+    })
+    .then(token => {
+        return fetch('http://localhost:3000/api/auth/me',{
+            method:'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            authorization: token,
+        },
+    })
+})
+.then(x => x.json())
+.then(fetchedUser => {
+    localStorage.setItem('user', JSON.stringify(fetchedUser) )
+    user = fetchedUser
+    app.removeChild(app.firstElementChild)
+    controlRender()          
+})
 }
+    
+    
+//     .then(x => {
+//         if (x.status === 200) {
+//             alert('Authentication process working...Welcome')
+//             const lView = document.getElementById('login-view')
+//             app.removeChild(app.firstElementChild)
+//             controlRender()
+//         }
+//         if (x.status === 404) {
+//             alert('Password or Username Incorrect!!')
+//             renderLogin()
+//         }
+//     })
+
+ 
 
 
 const clickId = () => {
