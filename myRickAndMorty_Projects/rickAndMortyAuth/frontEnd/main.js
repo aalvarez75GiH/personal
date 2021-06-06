@@ -2,9 +2,9 @@
 const API = 'https://rick-and-morty-auth-8grodfuvo.vercel.app/api/char'
 let array = []
 
-const fetchData = async(url_api) => {
+const fetchData = async(API) => {
     return new Promise((res,rej) =>{
-        fetch(url_api) 
+        fetch(API) 
         .then(response => response.json())
         .then(x => {
             res(x)
