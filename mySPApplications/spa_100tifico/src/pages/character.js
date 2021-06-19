@@ -27,10 +27,6 @@ const character =   async() => {
     return view
 }
 
-
-
 export default character 
-
-
 
 
