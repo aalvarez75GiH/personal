@@ -6,16 +6,25 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^5.0.2",
+    "faker": "^5.5.3",
+    "fs": "0.0.1-security",
+    "md5": "^2.3.0",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm-run-all -p client server",
+    "client": "react-scripts start",
+    "server": "json-server --port 3001 --watch server/db.json",
+    "seed": "node server/seed.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts ejectv"
   },
   "eslintConfig": {
     "extends": [
