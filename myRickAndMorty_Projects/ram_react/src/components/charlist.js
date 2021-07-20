@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CharItem from './charItem'
+import '../global.css'
 
 
 const CharList = ({ characters }) => {
@@ -15,7 +16,7 @@ const CharList = ({ characters }) => {
     })
 
     return (
-        <div>
+        <div className="container">
            {charList}
         </div>
     )

@@ -23,3 +23,29 @@ body {
     text-align: center;
     padding: 20px;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(285px,1fr));
+    width: 100vw;
+    height: auto;
+    max-width: 1230px;
+    margin-left:auto;
+    margin-right: auto;
+    flex-grow: 1;
+    
+}
+
+.charContainer {
+
+    padding: 0.6%;
+    margin: 5px;
+    width: 97.3%;
+    height: 97.3%;
+    background-color: #fff;
+}
+
+.charContainer > img {
+    object-fit: cover;
+    width: 100%
+}
