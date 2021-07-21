@@ -4,33 +4,42 @@ import '../global.css'
 import axios from 'axios'
 
 const App = () => {
+    
     const url_api = 'https://rickandmortyapi.com/api/character/'
     const [chars, setChars] = useState([])
+    
 
     useEffect(()=>{
         const fetchData = async () => {
-        const { data } = await axios.get(url_api, {},{
+        const data  = await axios.get(url_api, {},{
         
         })
-        
-        console.log({ data })
-        setChars(data.results)
-        console.log(chars)
-       return ()=> {
-           console.log('hola')
-       }
+        setChars(data.data.results)
     }
 
     fetchData()
     
 },[])
 
+const onHandleDelete = (charToDelete) => {
+    console.log(charToDelete)
+    const newChars = chars.filter((_char)=>{
+        return _char !== charToDelete
+    })
+
+    setChars(newChars)
+       
+}
+
         return (
         <div>
             <div className="header">
                 My Rick And Morty with React
             </div>
-            <CharList characters={ chars }/>
+            <CharList 
+            characters={ chars }
+            onHandleDelete = { onHandleDelete }
+            />
         </div>
         
     )

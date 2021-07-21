@@ -49,3 +49,38 @@ body {
     object-fit: cover;
     width: 100%
 }
+
+.characterInfo {
+    list-style: none;
+}
+
+.characterInfo li {
+    padding: 5px;
+}
+
+.liName {
+    background-color: #6b94c7;
+
+}
+
+.liGender {
+    background-color: #c2e7da;
+}
+.liDim {
+    background-color: #f1ffe7;
+}
+.infoBtn {
+    width: 100%;
+    height: 50px;
+    background-color: #F5D5CC;
+    border: none;
+    font-size: 1.2rem;   
+}
+
+/* .details, .classBtn {
+    width: 100%;
+    height: 30px;
+    font-size: 1.6rem;
+    padding: 0.5rem;
+    text-align: center;
+} */
