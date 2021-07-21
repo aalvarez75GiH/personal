@@ -40,14 +40,14 @@ body {
 
     padding: 0.6%;
     margin: 5px;
-    width: 97.3%;
+    width: 270px;
     height: 97.3%;
     background-color: #fff;
 }
 
 .charContainer > img {
     object-fit: cover;
-    width: 100%
+    width: 100%;
 }
 
 .characterInfo {

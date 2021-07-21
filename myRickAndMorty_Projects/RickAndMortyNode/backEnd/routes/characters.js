@@ -8,9 +8,18 @@ router.get('/', (req,res) =>{
     fetch(url_api)
     .then(x => x.json())
     .then(x => {
-        console.log(x)
+        // return res.status(400).send({
+        //     message: 'This is an error!'
+        //  })
+        
         res.status(200).send(x)
-    }) 
-})
+    })
+    
+    
+    
+     
+        
+}) 
+
 
   module.exports = router;

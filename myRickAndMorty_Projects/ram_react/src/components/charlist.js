@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CharItem from './charItem'
 import '../global.css'
 
