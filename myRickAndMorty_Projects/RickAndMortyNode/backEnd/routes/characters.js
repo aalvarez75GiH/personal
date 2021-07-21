@@ -10,8 +10,9 @@ router.get('/', (req,res) =>{
     .then(x => {
         // return res.status(400).send({
         //     message: 'This is an error!'
-        //  })
+        // })
         
+
         res.status(200).send(x)
     })
     
