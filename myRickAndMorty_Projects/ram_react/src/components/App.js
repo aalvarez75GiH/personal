@@ -1,10 +1,13 @@
- import React, {  useEffect, useState } from 'react'
+  import React, {  useEffect, useState } from 'react'
+  import ReactDom from 'react-dom'
 //import React from 'react'
 import CharList from './charlist'
 import '../global.css'
 import axios from 'axios'
 import PageError from './pageError'
 import PageLoading from './pageLoading'
+import LoginPage from './loginPage'
+import Logic from './logic'
 
 const App = () => {
 
@@ -16,30 +19,19 @@ const App = () => {
     const [chars, setChars] = useState([])
     const [error, setError] = useState(null)
     const [loading,setLoading] = useState(true)
+    const [showCharList, setShowCharList] = useState(false)
+
 
     console.log('1. Loading: at Constructor ' + loading)
     
-
-    useEffect(()=>{
-        const intervalID = setTimeout(()=> {
-            setLoading(true)
-            fetchData()
-        },1000)
-        
-        
-       
-    },[])
-
     const fetchData = async () => {
             
         try{
             setLoading(true)
-                const data  = await axios.get(url_api_node, {},{
+                const data  = await axios.get(url_api, {},{
                 })
                 setLoading(false)
                 setChars(data.data.results)
-            
-            
         }
          catch(err){
              if(err.response.status === 400){
@@ -59,7 +51,36 @@ const App = () => {
 
     }
 
- 
+    const gettingDataForm = (emailTerm, passwordTerm, token) => {
+        console.log('Email submitted...' + emailTerm)
+        console.log('Password submitted...' + passwordTerm)
+        console.log('token submitted...' + token)
+
+        if (token){
+            setLoading(true)
+            const intervalID = setTimeout(()=> {
+                fetchData()
+            },1000)
+            setShowCharList(true)
+        }
+        // else{
+        //     alert('this is not working...')
+        //     console.log('this is not workiing...')
+        // }
+    }
+    
+    
+    if (!showCharList){
+        return (  
+            <div>
+               <div className="header">
+                   My Rick And Morty with React
+               </div>
+               <LoginPage gettingData={ gettingDataForm }/>               
+           </div>
+       )
+    }
+
     if (error){
         return(
             <PageError errorMessage={error}/>
@@ -71,16 +92,19 @@ const App = () => {
     }
 
     return (  
-         <div>
-            <div className="header">
-                My Rick And Morty with React
-            </div>
-            <CharList 
-            characters={ chars }
-            onHandleDelete = { onHandleDelete }
-            />
-        </div>
-    )
+        <div>
+           <div className="header">
+               My Rick And Morty with React
+           </div>
+           <CharList 
+           characters={ chars }
+           onHandleDelete = { onHandleDelete }
+           />
+       </div>
+   )
+
+
+    
 
 }
 
