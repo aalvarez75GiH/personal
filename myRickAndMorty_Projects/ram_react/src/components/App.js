@@ -7,7 +7,6 @@ import axios from 'axios'
 import PageError from './pageError'
 import PageLoading from './pageLoading'
 import LoginPage from './loginPage'
-import Logic from './logic'
 
 const App = () => {
 
@@ -51,9 +50,7 @@ const App = () => {
 
     }
 
-    const gettingDataForm = (emailTerm, passwordTerm, token) => {
-        console.log('Email submitted...' + emailTerm)
-        console.log('Password submitted...' + passwordTerm)
+    const gettingToken = (token) => {
         console.log('token submitted...' + token)
 
         if (token){
@@ -63,10 +60,6 @@ const App = () => {
             },1000)
             setShowCharList(true)
         }
-        // else{
-        //     alert('this is not working...')
-        //     console.log('this is not workiing...')
-        // }
     }
     
     
@@ -76,7 +69,7 @@ const App = () => {
                <div className="header">
                    My Rick And Morty with React
                </div>
-               <LoginPage gettingData={ gettingDataForm }/>               
+               <LoginPage gettingToken={ gettingToken }/>               
            </div>
        )
     }
