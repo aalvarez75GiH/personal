@@ -1,5 +1,4 @@
-  import React, {  useEffect, useState } from 'react'
-  import ReactDom from 'react-dom'
+import React, {  useEffect, useState } from 'react'
 //import React from 'react'
 import CharList from './charlist'
 import '../global.css'
@@ -50,6 +49,15 @@ const App = () => {
 
     }
 
+    const gettingOut = (e)=> {
+        e.preventDefault()
+        alert('gettin out...')
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setShowCharList(false)
+    }
+
+
     const gettingToken = (token) => {
         console.log('token submitted...' + token)
 
@@ -93,6 +101,14 @@ const App = () => {
            characters={ chars }
            onHandleDelete = { onHandleDelete }
            />
+           <footer id="footer">
+                <button
+                onClick={(e)=> gettingOut(e)} 
+                id="logOutBtn" 
+                class="testBtn"
+                >LogOut</button>
+            </footer>
+            
        </div>
    )
 
