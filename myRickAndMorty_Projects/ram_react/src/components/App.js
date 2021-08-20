@@ -9,6 +9,7 @@ import LoginPage from './loginPage'
 import RegistrationPage from './registrationPage'
 
 
+
 const App = () => {
 
    
@@ -62,14 +63,13 @@ const App = () => {
 
     const gettingToken = (token) => {
         console.log('token submitted...' + token)
-
         if (token){
             setLoading(true)
             const intervalID = setTimeout(()=> {
                 fetchData()
             },1000)
             setShowCharList(true)
-        }    
+        }
     }
     
     const handlingRegRender = () => {
@@ -111,8 +111,8 @@ const App = () => {
 
     if (error){
         return(
-            console.log('there is no token...')
-            //<PageError errorMessage={error}/>
+            //console.log('there is no token...')
+            <PageError errorMessage={error}/>
         ) 
     }
 

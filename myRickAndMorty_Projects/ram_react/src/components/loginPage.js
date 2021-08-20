@@ -4,7 +4,7 @@ import authLogic from './authLogic'
 import GoogleAuth from './googleAuth'
 
 
-const LoginPage = ({ gettingToken, handlingRegRender }) => {
+const LoginPage = ({ gettingToken, handlingRegRender}) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')

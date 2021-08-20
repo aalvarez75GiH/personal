@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/loginPage.css'
 import authLogic from './authLogic'
+import regLogic from './regLogic'
 
 
 class GoogleAuth extends React.Component {
@@ -28,15 +29,18 @@ class GoogleAuth extends React.Component {
         })
     }
 
-    onAuthChange = () => {
+    onAuthChange = async () => {
        this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})
        const gMail = this.googleAuth.currentUser.Td.Ts.getEmail()
        const gId = this.googleAuth.currentUser.get().getId()
+       const gname = this.googleAuth.currentUser.Td.Ts.getName()
        console.log(this.state.isSignedIn)
        console.log(gMail)
        console.log(gId)
+       console.log(gname)
        console.log(this.state)
-       authLogic(this.props.gettingToken,gMail,gId)
+       await regLogic(gname, gMail, gId)
+       await authLogic(this.props.gettingToken, gMail, gId)
     }
 
     onSignInClick = (e) => {
@@ -51,11 +55,6 @@ class GoogleAuth extends React.Component {
         
     } 
     
-    // const sendingToken = async(e) => {
-    //     e.preventDefault()
-    //     authLogic(gettingToken, emailTerm, passwordTerm)
-    // }
-
     renderAuthButton() {
         if (this.state.isSignedIn === null){            
             return null
@@ -70,7 +69,6 @@ class GoogleAuth extends React.Component {
             ) 
         }else {
             return (
-                //  <button className="googleBtnIn" onClick={ this.onSignInClick }>
                 <button className="googleBtnIn" onClick={(e)=> this.onSignInClick(e)}>
                 <i className="google icon"></i>
                 Do you want to go with Google?
@@ -89,5 +87,3 @@ class GoogleAuth extends React.Component {
 
 export default GoogleAuth
 
-// ui red google button
-// ui green google button

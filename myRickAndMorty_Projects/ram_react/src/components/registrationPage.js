@@ -69,14 +69,11 @@ const RegistrationPage = ({ gettingToken, handlingRegNoRender }) => {
                         onClick={(e) => regProcess(e)}
                         className="btnLogin">Send
                     </button>
-                    <div>
+                    {/* <div>
                         <GoogleAuth gettingToken={ gettingToken }/>
-                    </div>
+                    </div> */}
                 </div>
-                <div className="infoSocialExtras">
-                    <p><a href="/">Forgot Password/Username??</a></p>
-                    <p><a href="/">Do you want to Register??</a></p>
-                </div>
+                
 
             </form>
         </div>
