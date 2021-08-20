@@ -1,6 +1,4 @@
- 
- 
- 
+
  const authLogic = (gettingData, emailTerm, passwordTerm) => {
     console.log('i am logic')
     const email = emailTerm
@@ -17,7 +15,9 @@
         })
         .then(res => {
             if (res.status === 404){
-                alert('User not found...')
+                gettingData(null)
+                alert('User not found...' + res.status)
+                //res.status(404).send('user Not Found');
             }
             return res.json()
         })

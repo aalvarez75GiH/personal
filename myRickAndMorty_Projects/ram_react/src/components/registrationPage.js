@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import './styles/loginPage.css'
 import authLogic from './authLogic'
+import regLogic from './regLogic'
+// import authLogic from './authLogic'
 import GoogleAuth from './googleAuth'
 
-
-const LoginPage = ({ gettingToken }) => {
+const RegistrationPage = ({ gettingToken }) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')
+    const [nameTerm,setNameTerm] = useState('')
     
-    
-    const sendingToken = async(e) => {
+    const regToken = async(e) => {
         e.preventDefault()
-        authLogic(gettingToken, emailTerm, passwordTerm)
+        regLogic( nameTerm, emailTerm, passwordTerm)
     }
     
+    const onInputChangeName = (e) => {
+        setNameTerm(e.target.value )
+        console.log(nameTerm)
+    }
 
     const onInputChangeEmail = (e) => {
         setEmailTerm(e.target.value)
@@ -25,12 +30,25 @@ const LoginPage = ({ gettingToken }) => {
         setPasswordTerm(e.target.value )
         console.log(passwordTerm)
     }
+
+
    
 
     return (
         <div className="form-main" id="form-main">
-            <p className="form-title">Log In</p>
+            <p className="form-title">Register With Us</p>
             <form  className="login-form">
+                
+            <label className="label">
+                    <span>Enter your full name</span>
+                    <input type="text" className="name" 
+                    onChange={(e) => onInputChangeName(e)}
+                    value={nameTerm} 
+                    
+                    
+                    />
+                </label>
+                
                 
                 <label className="label">
                     <span>Enter your email</span>
@@ -50,21 +68,12 @@ const LoginPage = ({ gettingToken }) => {
                 </label>    
                 <div>
                     <button 
-                        onClick={(e) => sendingToken(e)}
+                        onClick={(e) => regToken(e)}
                         className="btnLogin">Send
                     </button>
                     <div>
                         <GoogleAuth gettingToken={ gettingToken }/>
                     </div>
-                    
-
-                </div>
-
-                <div>
-                    <button 
-                    className="regBtn">Register with us
-                    </button>
-                      
                 </div>
                 <div className="infoSocialExtras">
                     <p><a href="/">Forgot Password/Username??</a></p>
@@ -76,4 +85,4 @@ const LoginPage = ({ gettingToken }) => {
     )
 }
 
-export default LoginPage
+export default RegistrationPage

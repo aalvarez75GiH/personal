@@ -66,6 +66,31 @@ body {
     color: #fff;
 }
 
+.regBtn {
+    width: 100%;
+    height: 45px;
+    background-color: #ffbb00;
+    border-style: none;
+    color: #000;
+    margin-top: 1rem;
+}
+.googleBtnIn {
+    width: 100%;
+    height: 45px;
+    background-color: green;
+    border-style: none;
+    color: #fff;
+    margin-top: 1rem;
+}
+.googleBtnOut {
+    width: 100%;
+    height: 45px;
+    background-color: red;
+    border-style: none;
+    color: #fff;
+    margin-top: 1rem;
+}
+
 .infoSocialExtras{
     display: flex;
     flex-direction: column;

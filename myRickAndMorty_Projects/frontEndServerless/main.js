@@ -1,4 +1,4 @@
-const API = 'https://rick-and-morty-serverless.aalvarez75gih.vercel.app/api/routes/char/'
+ const API = 'https://rick-and-morty-serverless-aalvarez75gih.vercel.app/api/routes/char/'
 
 
 let array = []
@@ -66,7 +66,7 @@ const validateForms = async() =>{
     console.log(password)
     if (email === "guest@rickandmorty.com" && password === "1234" ){
         console.log('You are Rick and Morty...')
-        alert('You are Rick and Morty...')
+        alert('You are part of rick and Morty project...')
         const lView = document.getElementById('login-view')
         app.removeChild(app.firstElementChild)
         controlRender()
