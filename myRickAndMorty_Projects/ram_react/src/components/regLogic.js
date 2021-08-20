@@ -16,6 +16,9 @@ const regLogic = (nameTerm, emailTerm, passwordTerm) => {
         // .then(x => x.json())
         .then(res =>{
             console.log(res)
+            if (res.status === 200){
+                alert('User has been created successfully...')
+            }
         })
         // .then(res => {
         //     if (res.status === 404){
