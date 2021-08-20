@@ -1,10 +1,10 @@
-const regLogic = (nameTerm, emailTerm, passwordTerm) => {
+const regLogic = async (nameTerm, emailTerm, passwordTerm) => {
     console.log('i am logic')
     const name = nameTerm
     const email = emailTerm
     const password = passwordTerm
     
-    fetch('https://rick-and-morty-auth-8grodfuvo.vercel.app/api/users', {
+    await fetch('https://rick-and-morty-auth-8grodfuvo.vercel.app/api/users', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',

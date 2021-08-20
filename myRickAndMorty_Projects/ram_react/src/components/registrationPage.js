@@ -5,7 +5,7 @@ import regLogic from './regLogic'
 // import authLogic from './authLogic'
 import GoogleAuth from './googleAuth'
 
-const RegistrationPage = ({ gettingToken }) => {
+const RegistrationPage = ({ gettingToken, handlingRegNoRender }) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')
@@ -13,7 +13,8 @@ const RegistrationPage = ({ gettingToken }) => {
     
     const regProcess = async(e) => {
         e.preventDefault()
-        regLogic(nameTerm, emailTerm, passwordTerm)
+        await regLogic(nameTerm, emailTerm, passwordTerm)
+        handlingRegNoRender()
     }
     
     const onInputChangeName = (e) => {

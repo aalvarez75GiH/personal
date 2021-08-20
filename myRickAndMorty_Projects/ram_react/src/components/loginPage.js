@@ -4,7 +4,7 @@ import authLogic from './authLogic'
 import GoogleAuth from './googleAuth'
 
 
-const LoginPage = ({ gettingToken }) => {
+const LoginPage = ({ gettingToken, handlingRegRender }) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')
@@ -24,6 +24,12 @@ const LoginPage = ({ gettingToken }) => {
     const onInputChangePassword = (e) => {
         setPasswordTerm(e.target.value )
         console.log(passwordTerm)
+    }
+
+    const onRegBtnClicked = (e) => {
+        e.preventDefault()
+        console.log('you made click and reg button...')
+        handlingRegRender()
     }
    
 
@@ -62,6 +68,7 @@ const LoginPage = ({ gettingToken }) => {
 
                 <div>
                     <button 
+                    onClick={(e) => onRegBtnClicked(e)}
                     className="regBtn">Register with us
                     </button>
                       

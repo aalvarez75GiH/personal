@@ -20,7 +20,7 @@ const App = () => {
     const [error, setError] = useState(null)
     const [loading,setLoading] = useState(true)
     const [showCharList, setShowCharList] = useState(false)
-    const [register,setRegister] = useState(false)
+    const [regPage, setRegPage] = useState(false)
     
 
     
@@ -69,44 +69,45 @@ const App = () => {
                 fetchData()
             },1000)
             setShowCharList(true)
-            console.log(intervalID)
-        }
-        
-        if (token === null){
-            console.log('there is no token...')  
-            setRegister(true)
-            console.log(register)
         }    
-        
     }
     
-    if (register) {
+    const handlingRegRender = () => {
+        console.log('returning from login page...')
+        setRegPage(true)
+        console.log(regPage)
+    }
+
+    const handlingRegNoRender = () => {
+        console.log('returning from regstrationPage...')
+        setRegPage(false)
+        console.log(regPage)
+    }
+    
+    if (regPage) {
+        console.log(regPage)
         return (
             <div>
                <div className="header">
                    My Rick And Morty with React
                </div>
-               <RegistrationPage/>               
+               <RegistrationPage handlingRegNoRender={handlingRegNoRender} />               
            </div>
         )
-        
     }
-    
+
+
     if (!showCharList){
         return (  
             <div>
                <div className="header">
                    My Rick And Morty with React
                </div>
-               <LoginPage gettingToken={ gettingToken }/>               
+               <LoginPage gettingToken={ gettingToken } handlingRegRender={ handlingRegRender } handlingRegNoRender={handlingRegNoRender}/>               
            </div>
         )
     }
 
-    
-    
-    
-   
 
     if (error){
         return(
