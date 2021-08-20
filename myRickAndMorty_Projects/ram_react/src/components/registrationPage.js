@@ -11,9 +11,9 @@ const RegistrationPage = ({ gettingToken }) => {
     const [passwordTerm, setPasswordTerm] = useState('')
     const [nameTerm,setNameTerm] = useState('')
     
-    const regToken = async(e) => {
+    const regProcess = async(e) => {
         e.preventDefault()
-        regLogic( nameTerm, emailTerm, passwordTerm)
+        regLogic(nameTerm, emailTerm, passwordTerm)
     }
     
     const onInputChangeName = (e) => {
@@ -30,9 +30,6 @@ const RegistrationPage = ({ gettingToken }) => {
         setPasswordTerm(e.target.value )
         console.log(passwordTerm)
     }
-
-
-   
 
     return (
         <div className="form-main" id="form-main">
@@ -68,7 +65,7 @@ const RegistrationPage = ({ gettingToken }) => {
                 </label>    
                 <div>
                     <button 
-                        onClick={(e) => regToken(e)}
+                        onClick={(e) => regProcess(e)}
                         className="btnLogin">Send
                     </button>
                     <div>
