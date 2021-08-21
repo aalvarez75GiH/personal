@@ -1,5 +1,5 @@
 const regLogic = async (nameTerm, emailTerm, passwordTerm) => {
-    console.log('i am logic')
+    console.log('i am regLogic')
     const name = nameTerm
     const email = emailTerm
     const password = passwordTerm

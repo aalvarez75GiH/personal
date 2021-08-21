@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 //import React from 'react'
 import CharList from './charlist'
 import '../global.css'
@@ -7,6 +7,7 @@ import PageError from './pageError'
 import PageLoading from './pageLoading'
 import LoginPage from './loginPage'
 import RegistrationPage from './registrationPage'
+import googleProcess from './googleAccountProcess'
 
 
 
@@ -52,9 +53,12 @@ const App = () => {
 
     }
 
+  
+
     const gettingOut = (e)=> {
+        //googleProcess()
         e.preventDefault()
-        alert('gettin out...')
+        alert('You are being logged, welcome back soon...')
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setShowCharList(false)
@@ -73,19 +77,14 @@ const App = () => {
     }
     
     const handlingRegRender = () => {
-        console.log('returning from login page...')
         setRegPage(true)
-        console.log(regPage)
     }
 
     const handlingRegNoRender = () => {
-        console.log('returning from regstrationPage...')
         setRegPage(false)
-        console.log(regPage)
     }
     
     if (regPage) {
-        console.log(regPage)
         return (
             <div>
                <div className="header">
@@ -103,7 +102,9 @@ const App = () => {
                <div className="header">
                    My Rick And Morty with React
                </div>
-               <LoginPage gettingToken={ gettingToken } handlingRegRender={ handlingRegRender } handlingRegNoRender={handlingRegNoRender}/>               
+               <LoginPage 
+               gettingToken={ gettingToken } 
+               handlingRegRender={ handlingRegRender }/>               
            </div>
         )
     }

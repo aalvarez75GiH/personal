@@ -6,28 +6,28 @@ import regLogic from './regLogic'
 
 class GoogleAuth extends React.Component {
 
-    // state = { 
-    //     isSignedIn: null,
-    //     gMail: '',
-    //     gId: '' 
-    // }
-
     state = { isSignedIn: null }
     
     componentDidMount(){
-        window.gapi.load('auth2', () => {
-            window.gapi.auth2.init({
-                client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
-                scope:'email'
-            }).then(()=> {
-                this.googleAuth = window.gapi.auth2.getAuthInstance()
-                this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})
-                //this.onAuthChange()      
-                this.googleAuth.isSignedIn.listen(this.onAuthChange)
-                console.log(this.state.isSignedIn)
+        const getDataStorage = localStorage.getItem('user')
+        console.log(getDataStorage)
+      
+            window.gapi.load('auth2', () => {
+                window.gapi.auth2.init({
+                    client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
+                    scope:'email'
+                }).then(()=> {
+                    this.googleAuth = window.gapi.auth2.getAuthInstance()
+                    this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})     
+                    this.googleAuth.isSignedIn.listen(this.onAuthChange)
+                    console.log(this.state.isSignedIn)
+                })
             })
-        })
     }
+      
+
+        
+    
 
     onAuthChange = async () => {
        this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})
@@ -46,8 +46,6 @@ class GoogleAuth extends React.Component {
     onSignInClick = (e) => {
         e.preventDefault()
         this.googleAuth.signIn()
-        console.log(this.state)
-        console.log(this.state.isSignedIn)
     } 
     
     onSignOutClick = (e) => {
