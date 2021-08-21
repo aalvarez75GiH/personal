@@ -18,6 +18,7 @@ class GoogleAuth extends React.Component {
                     scope:'email'
                 }).then(()=> {
                     this.googleAuth = window.gapi.auth2.getAuthInstance()
+                    //this.onAuthChange(this.googleAuth.isSignedIn.get())
                     this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})     
                     this.googleAuth.isSignedIn.listen(this.onAuthChange)
                     console.log(this.state.isSignedIn)
@@ -39,8 +40,11 @@ class GoogleAuth extends React.Component {
        console.log(gId)
        console.log(gname)
        console.log(this.state)
-       await regLogic(gname, gMail, gId)
-       await authLogic(this.props.gettingToken, gMail, gId)
+    //    if (this.state.isSignedIn === true){
+            await regLogic(gname, gMail, gId)
+            await authLogic(this.props.gettingToken, gMail, gId)
+       //}
+
     }
 
     onSignInClick = (e) => {

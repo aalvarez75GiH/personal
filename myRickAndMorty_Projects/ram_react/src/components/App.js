@@ -62,6 +62,7 @@ const App = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setShowCharList(false)
+        // window.gapi.auth2.getAuthInstance().signOut()
     }
 
 
