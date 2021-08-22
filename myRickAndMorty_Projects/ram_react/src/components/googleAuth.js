@@ -7,7 +7,7 @@ import regLogic from './regLogic'
 class GoogleAuth extends React.Component {
 
     state = { isSignedIn: null }
-     
+
     componentDidMount(){
         console.log(this.props.isSignedOut)
         const getDataStorage = localStorage.getItem('user')
@@ -49,7 +49,9 @@ class GoogleAuth extends React.Component {
     
     onSignOutClick = () => {
         //e.preventDefault()
-        this.googleAuth.signOut()
+        this.googleAuth.signOut().then(()=> {
+            alert('User has signed Out...')
+        })
     } 
     
     renderAuthButton() {
