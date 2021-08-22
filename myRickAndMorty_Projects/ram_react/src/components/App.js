@@ -7,14 +7,10 @@ import PageError from './pageError'
 import PageLoading from './pageLoading'
 import LoginPage from './loginPage'
 import RegistrationPage from './registrationPage'
-import googleProcess from './googleAccountProcess'
-
 
 
 const App = () => {
 
-   
-    
     const url_api = 'https://rickandmortyapi.com/api/character/'
     //const url_api_node ='http://localhost:3001/characters'
     
@@ -56,13 +52,22 @@ const App = () => {
   
 
     const gettingOut = (e)=> {
-        //googleProcess()
-        e.preventDefault()
+       
+        // e.preventDefault()
+        //  window.gapi.load('auth2', () => {
+        //         window.gapi.auth2.init({
+        //             client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
+        //             scope:'email'
+        //         }).then(()=> {
+        //             const googleAuth = window.gapi.auth2.getAuthInstance()
+        //             googleAuth.signOut()
+        //         })
+        //     })
+        
         alert('You are being logged, welcome back soon...')
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setShowCharList(false)
-        // window.gapi.auth2.getAuthInstance().signOut()
     }
 
 

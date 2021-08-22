@@ -18,17 +18,13 @@ class GoogleAuth extends React.Component {
                     scope:'email'
                 }).then(()=> {
                     this.googleAuth = window.gapi.auth2.getAuthInstance()
-                    //this.onAuthChange(this.googleAuth.isSignedIn.get())
-                    this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})     
+                    this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})    
                     this.googleAuth.isSignedIn.listen(this.onAuthChange)
                     console.log(this.state.isSignedIn)
                 })
             })
     }
       
-
-        
-    
 
     onAuthChange = async () => {
        this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})
@@ -40,11 +36,8 @@ class GoogleAuth extends React.Component {
        console.log(gId)
        console.log(gname)
        console.log(this.state)
-    //    if (this.state.isSignedIn === true){
-            await regLogic(gname, gMail, gId)
-            await authLogic(this.props.gettingToken, gMail, gId)
-       //}
-
+       await regLogic(gname, gMail, gId)
+       await authLogic(this.props.gettingToken, gMail, gId)
     }
 
     onSignInClick = (e) => {
@@ -52,15 +45,15 @@ class GoogleAuth extends React.Component {
         this.googleAuth.signIn()
     } 
     
-    onSignOutClick = (e) => {
+    onSignOutClick = () => {
+        //e.preventDefault()
         this.googleAuth.signOut()
-        
     } 
     
     renderAuthButton() {
         if (this.state.isSignedIn === null){            
             return null
-
+ 
         }else if (this.state.isSignedIn){
             return (
                  <button className="googleBtnOut" onClick={this.onSignOutClick}>
