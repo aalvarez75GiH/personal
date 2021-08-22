@@ -19,9 +19,9 @@ const App = () => {
     const [loading,setLoading] = useState(true)
     const [showCharList, setShowCharList] = useState(false)
     const [regPage, setRegPage] = useState(false)
-    const [isSignedOut,setIsSignedOut] = useState(false)
     
-
+    
+    
     
     const fetchData = async () => {
             
@@ -56,7 +56,6 @@ const App = () => {
         alert('You are being logged, welcome back soon...')
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-        setIsSignedOut(true)
         setShowCharList(false)
     }
 
@@ -93,7 +92,6 @@ const App = () => {
 
 
     if (!showCharList){
-        console.log(isSignedOut)
         return (  
             <div>
                <div className="header">
@@ -101,8 +99,7 @@ const App = () => {
                </div>
                <LoginPage 
                gettingToken={ gettingToken } 
-               handlingRegRender={ handlingRegRender }
-               isSignedOut = {isSignedOut}/>               
+               handlingRegRender={ handlingRegRender }/>               
            </div>
         )
     }
