@@ -60,7 +60,7 @@ const LoginPage = ({ gettingToken, handlingRegRender, isSignedOut}) => {
                         className="btnLogin">Send
                     </button>
                     <div>
-                        <GoogleAuth gettingToken={ gettingToken } isSignedOut={ isSignedOut } />
+                        <GoogleAuth gettingToken={ gettingToken } />
                     </div>
                     
 

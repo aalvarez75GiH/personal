@@ -95,6 +95,14 @@ footer {
        
     
 }
+.googleBtnOut2 {
+    width: 20%;
+    height: 45px;
+    background-color: red;
+    border-style: none;
+    color: #fff;
+    margin-top: 1rem;
+}
 
 /* .details, .classBtn {
     width: 100%;

@@ -9,7 +9,6 @@ class GoogleAuth extends React.Component {
     state = { isSignedIn: null }
 
     componentDidMount(){
-        console.log(this.props.isSignedOut)
         const getDataStorage = localStorage.getItem('user')
         console.log(getDataStorage)
             window.gapi.load('auth2', () => {
@@ -33,12 +32,13 @@ class GoogleAuth extends React.Component {
        const gMail = this.googleAuth.currentUser.Td.Ts.getEmail()
        const gId = this.googleAuth.currentUser.get().getId()
        const gname = this.googleAuth.currentUser.Td.Ts.getName()
+       const gType = 'googleUser'
        console.log(this.state.isSignedIn)
        console.log(gMail)
        console.log(gId)
        console.log(gname)
        console.log(this.state)
-       await regLogic(gname, gMail, gId)
+       await regLogic(gname, gMail, gId, gType)
        await authLogic(this.props.gettingToken, gMail, gId)
     }
 
@@ -50,7 +50,7 @@ class GoogleAuth extends React.Component {
     onSignOutClick = () => {
         //e.preventDefault()
         this.googleAuth.signOut().then(()=> {
-            alert('User has signed Out...')
+            this.setState({isSignedIn: this.googleAuth.isSignedIn.get()})
         })
     } 
     

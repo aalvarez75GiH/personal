@@ -25,7 +25,8 @@ router.post('/login',(req,res) => {
             const encryptedPassword = key.toString('base64')
             if (user.password === encryptedPassword){
                 const token = signToken(user._id)
-                return res.send({token})
+                const type = user.userType
+                return res.send({token, type})
             }
                     
         })

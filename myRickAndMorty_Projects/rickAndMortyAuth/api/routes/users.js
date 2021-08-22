@@ -10,7 +10,7 @@ router.get('/',(req,res) => {
 })
 
 router.post('/', (req,res) => {
-    const { name, email, password } = req.body
+    const { name, email, password, userType } = req.body
     crypto.randomBytes(16, (err, salt) => { 
         const newSalt = salt.toString('base64')
         crypto.pbkdf2(password, newSalt, 10000, 64, 'sha1', (err, key) =>{ 
@@ -19,7 +19,8 @@ router.post('/', (req,res) => {
             .exec()
             .then(user => {
                 if (user){
-                    return res.send('User already exist...')
+                    return res.sendStatus(409)
+                    //return res.send('User already exist...')
                 }
                 users.create({ 
                     name,

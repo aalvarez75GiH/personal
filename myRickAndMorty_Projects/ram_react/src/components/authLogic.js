@@ -1,10 +1,10 @@
 
- const authLogic = (gettingData, emailTerm, passwordTerm) => {
+ const authLogic = (gettingToken, emailTerm, passwordTerm) => {
     console.log('i am logic')
     const email = emailTerm
     const password = passwordTerm
-        
-        fetch('https://rick-and-morty-auth-8grodfuvo.vercel.app/api/auth/login', {
+    
+        fetch('https://rick-and-morty-auth-hwzvjwbox-aalvarez75gih.vercel.app/api/auth/login', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +15,7 @@
         })
         .then(res => {
             if (res.status === 404){
-                gettingData(null)
+                gettingToken(null)
                 alert('User not found...' + res.status)
                 //res.status(404).send('user Not Found');
             }
@@ -24,12 +24,14 @@
         .then(response => {
             if (response.token){
                 localStorage.setItem('token', response.token)
-                gettingData(response.token)
+                localStorage.setItem('userType', response.type)
+                console.log(response.type)
+                gettingToken(response.token, response.type)
                 return response.token
             }   
         })
         .then(token => {
-           return fetch('https://rick-and-morty-auth-8grodfuvo.vercel.app/api/auth/me',{
+           return fetch('https://rick-and-morty-auth-hwzvjwbox-aalvarez75gih.vercel.app/api/auth/me',{
                 method:'GET',
                 headers: {
                 'Content-Type': 'application/json',

@@ -3,17 +3,19 @@ import './styles/loginPage.css'
 import authLogic from './authLogic'
 import regLogic from './regLogic'
 // import authLogic from './authLogic'
-import GoogleAuth from './googleAuth'
+
 
 const RegistrationPage = ({ gettingToken, handlingRegNoRender }) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')
     const [nameTerm,setNameTerm] = useState('')
+    // const [userType, setUserType] = useState('')
     
     const regProcess = async(e) => {
         e.preventDefault()
-        await regLogic(nameTerm, emailTerm, passwordTerm)
+        const userType = 'localUser'
+        await regLogic(nameTerm, emailTerm, passwordTerm, userType)
         handlingRegNoRender()
     }
     
@@ -69,9 +71,6 @@ const RegistrationPage = ({ gettingToken, handlingRegNoRender }) => {
                         onClick={(e) => regProcess(e)}
                         className="btnLogin">Send
                     </button>
-                    {/* <div>
-                        <GoogleAuth gettingToken={ gettingToken }/>
-                    </div> */}
                 </div>
             </form>
         </div>
