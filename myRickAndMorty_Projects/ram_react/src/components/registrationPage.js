@@ -73,8 +73,6 @@ const RegistrationPage = ({ gettingToken, handlingRegNoRender }) => {
                         <GoogleAuth gettingToken={ gettingToken }/>
                     </div> */}
                 </div>
-                
-
             </form>
         </div>
     )
