@@ -25,6 +25,7 @@ router.post('/', (req,res) => {
                     name,
                     email,
                     password: encryptedPassword,
+                    userType,
                     salt: newSalt,
                 }).then(() => {
                     res.send('User created successfully...')
