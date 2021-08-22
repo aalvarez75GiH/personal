@@ -7,11 +7,27 @@ import regLogic from './regLogic'
 class GoogleAuth extends React.Component {
 
     state = { isSignedIn: null }
+
+   
     
     componentDidMount(){
+        console.log(this.props.isSignedOut)
         const getDataStorage = localStorage.getItem('user')
         console.log(getDataStorage)
-      
+        // if (this.props.isSignedOut === true){
+        //     window.gapi.load('auth2', () => {
+        //         window.gapi.auth2.init({
+        //             client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
+        //             scope:'email'
+        //         }).then(()=> {
+        //             this.googleAuth = window.gapi.auth2.getAuthInstance()
+        //             this.setState({isSignedIn: !this.props.isSignedOut})    
+        //             // this.googleAuth.isSignedIn.listen(this.onAuthChange)
+        //             console.log(this.state.isSignedIn)
+        //         })
+        //     })
+        //     console.log('button green must appear...')
+        //}else if(this.props.isSignedOut === false){
             window.gapi.load('auth2', () => {
                 window.gapi.auth2.init({
                     client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
@@ -23,6 +39,8 @@ class GoogleAuth extends React.Component {
                     console.log(this.state.isSignedIn)
                 })
             })
+        //}
+            
     }
       
 

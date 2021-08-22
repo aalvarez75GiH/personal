@@ -4,7 +4,7 @@ import authLogic from './authLogic'
 import GoogleAuth from './googleAuth'
 
 
-const LoginPage = ({ gettingToken, handlingRegRender}) => {
+const LoginPage = ({ gettingToken, handlingRegRender, isSignedOut}) => {
     
     const [emailTerm, setEmailTerm] = useState('')
     const [passwordTerm, setPasswordTerm] = useState('')
@@ -60,7 +60,7 @@ const LoginPage = ({ gettingToken, handlingRegRender}) => {
                         className="btnLogin">Send
                     </button>
                     <div>
-                        <GoogleAuth gettingToken={ gettingToken }/>
+                        <GoogleAuth gettingToken={ gettingToken } isSignedOut={ isSignedOut } />
                     </div>
                     
 

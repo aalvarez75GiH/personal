@@ -19,6 +19,7 @@ const App = () => {
     const [loading,setLoading] = useState(true)
     const [showCharList, setShowCharList] = useState(false)
     const [regPage, setRegPage] = useState(false)
+    const [isSignedOut,setIsSignedOut] = useState(false)
     
 
     
@@ -52,21 +53,10 @@ const App = () => {
   
 
     const gettingOut = (e)=> {
-       
-        // e.preventDefault()
-        //  window.gapi.load('auth2', () => {
-        //         window.gapi.auth2.init({
-        //             client_id: '893855487421-l0l6ejqncjds8145a9icsgurvsuhv37o.apps.googleusercontent.com',
-        //             scope:'email'
-        //         }).then(()=> {
-        //             const googleAuth = window.gapi.auth2.getAuthInstance()
-        //             googleAuth.signOut()
-        //         })
-        //     })
-        
         alert('You are being logged, welcome back soon...')
         localStorage.removeItem('token')
         localStorage.removeItem('user')
+        setIsSignedOut(true)
         setShowCharList(false)
     }
 
@@ -103,6 +93,7 @@ const App = () => {
 
 
     if (!showCharList){
+        console.log(isSignedOut)
         return (  
             <div>
                <div className="header">
@@ -110,7 +101,8 @@ const App = () => {
                </div>
                <LoginPage 
                gettingToken={ gettingToken } 
-               handlingRegRender={ handlingRegRender }/>               
+               handlingRegRender={ handlingRegRender }
+               isSignedOut = {isSignedOut}/>               
            </div>
         )
     }
