@@ -11,7 +11,7 @@ const Nav = ({ user }) => {
         <ul className="Nav__links">
             <li>
                 <Link to="/" className="Nav__link">
-                    Clontagram
+                    popMe
                 </Link>
             </li>
             { user && <LoginRoutes user={ user } /> }
