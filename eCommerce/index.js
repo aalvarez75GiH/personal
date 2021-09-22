@@ -3,6 +3,21 @@ const bodyParser = require('body-parser')
 
 const app = express()
 const productsRouter = require('./products.routes')
+
+
+app.get('/', (req,res)=> {
+    res.send('Welcome to my E-Commerce API BackEnd...')
+})
+
+app.use('/api/products', productsRouter)
+
+app.listen(3000, ()=> {
+    console.log('Server running at port 3000...')
+})
+
+module.exports = app
+
+
 // Provisional DataBase...
 // const products = [
 //     {
@@ -44,17 +59,3 @@ const productsRouter = require('./products.routes')
 //     })
 //     res.status(404).send('Product not found from .map')
 // })
-
-app.get('/', (req,res)=> {
-    res.send('Welcome to my E-Commerce API BackEnd...')
-})
-
-app.use('/api/products', productsRouter)
-
-app.listen(3000, ()=> {
-    console.log('Server running at port 3000...')
-})
-
-module.exports = app
-
-
