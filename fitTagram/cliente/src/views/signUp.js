@@ -41,7 +41,7 @@ const handleOnSubmit = async(e) => {
            <div className="Signup">
                <img src={imagenSignUp} alt="" className="Signup__img" />
                <div className="FormContainer">
-                   <h1 className="Form__titulo">Clontagram</h1>
+                   <h1 className="Form__titulo">FitTagram</h1>
                    <p className="FormContainer__info">
                        Register with us...
                    </p>

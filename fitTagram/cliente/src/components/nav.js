@@ -3,25 +3,36 @@ import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faCameraRetro  } from '@fortawesome/free-solid-svg-icons'
 import { faCompass, faUser } from '@fortawesome/free-regular-svg-icons'
 import { Link } from 'react-router-dom'
+import useEsMobil from '../hooks/useEsMobil'
+import BurgerMenu from './burgerMenu'
+
 
 const Nav = ({ user }) => {
+    const esMobil = useEsMobil()
     
     return (
     <nav className="Nav">
         <ul className="Nav__links">
+        { esMobil && (
+            <BurgerMenu/>
+        )}
+        
+        { !esMobil && (
             <li>
                 <Link to="/" className="Nav__link">
                     FitTagram
                 </Link>
             </li>
-            { user && <LoginRoutes user={ user } /> }
+         
+        )}
+        { (user && !esMobil) && <AuthenticatedIcons user={ user }/> }  
         </ul>
     </nav>
     
 )
 }
 
-const LoginRoutes = ({user}) => {
+const AuthenticatedIcons = ({user}) => {
     return (
         <React.Fragment>
             <li className="Nav__link-push">

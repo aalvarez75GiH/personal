@@ -38,7 +38,7 @@ const Login = ({ login, showError }) => {
             <Main center={ true }>
                <div className="Signup">
                    <div className="FormContainer">
-                       <h1 className="Form__titulo">Clontagram</h1>
+                       <h1 className="Form__titulo">FitTagram</h1>
                        <div>
                         <form
                         onSubmit={(e)=> handleOnSubmit(e)}
